@@ -1,0 +1,29 @@
+import re
+
+def reverse_file_content(input_file, output_file):
+    with open(input_file, 'r') as file:
+        content = file.read()
+    words = content.split()
+    reversed_content = ' '.join(reversed(words))
+    with open(output_file, 'w') as file:
+        file.write(reversed_content)
+    print("File content reversed and stored in", output_file)
+
+def copy_file_content(source_file, destination_file):
+    with open(source_file, 'r') as file:
+        content = file.read()
+    with open(destination_file, 'w') as file:
+        file.write(content)
+    print("File copied successfully.")
+
+def extract_vowel_starting_words(input_file):
+    vowels = ('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U')
+    with open(input_file, 'r') as file:
+        words = file.read().split()
+    vowel_words = [word for word in words if word.startswith(vowels)]
+    print("Words starting with vowels:", vowel_words)
+
+# Example usage:
+# reverse_file_content("input.txt", "output.txt")
+# copy_file_content("source.txt", "destination.txt")
+# extract_vowel_starting_words("text.txt")
